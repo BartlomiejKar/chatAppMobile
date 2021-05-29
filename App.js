@@ -1,21 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import Header from "./src/components/header/Header"
+import RoomsScreen from "./src/components/ListRooms/RoomsScreen"
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>TWG chat</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeAreaView}>
+      <View>
+        <Header />
+        <RoomsScreen />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "blue",
-    alignItems: 'center',
-    justifyContent: 'center',
+  safeAreaView: {
+    height: 46,
+    backgroundColor: "#B6DEFD"
   },
 });
