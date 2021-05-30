@@ -6,6 +6,7 @@ import { View, Text, StyleSheet, Image } from "react-native"
 
 const Card = ({ rooms }) => {
     const { name, roomPic } = rooms;
+    console.log(rooms)
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 24,
         borderBottomRightRadius: 24,
         paddingLeft: 16,
-        marginBottom: 24
+        // marginBottom: 24
     },
     text: {
         fontSize: 36,
