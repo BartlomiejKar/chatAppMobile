@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@absinthe/socket": "^0.2.1",
+    "@absinthe/socket-apollo-link": "^0.2.1",
     "@apollo/client": "^3.3.19",
     "@expo-google-fonts/poppins": "^0.1.0",
     "@react-navigation/native": "^5.9.4",

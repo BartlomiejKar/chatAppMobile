@@ -25,7 +25,7 @@ const Chat = ({ route }) => {
                 let avatarIcon = {
                     user: {
                         _id: el.user.id,
-                        avatar: el.user.profilePic || <ProfileIcon />,
+                        avatar: el.user.profilePic,
                     }
                 }
                 return avatarIcon
@@ -39,7 +39,7 @@ const Chat = ({ route }) => {
                     createdAt: el.insertedAt,
                     user: {
                         _id: el.user.id,
-                        avatar: el.user.profilePic || <ProfileIcon />,
+                        avatar: el.user.profilePic,
                     }
                 }
                 return messages

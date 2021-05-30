@@ -14,6 +14,7 @@ const RoomsScreen = ({ navigation }) => {
             setDataRooms(rooms)
         }
     }, [data])
+
     return (
         <>
             <Header />
