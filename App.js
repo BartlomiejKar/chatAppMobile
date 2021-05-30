@@ -27,7 +27,6 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <Header />
       <Navigation />
     </ApolloProvider>
   );

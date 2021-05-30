@@ -4,22 +4,33 @@ import { useQuery, useMutation } from "@apollo/client"
 import { MessagesRoom, sendMessages } from "../utils/data"
 import { Bubble, Composer, GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat'
 import ProfileIcon from '../../../assets/profile';
-import SendIcon from "../../../assets/send"
+import SendIcon from "../../../assets/send";
+import ChatHeader from "../header/ChatHeader"
 
 
 
 const Chat = ({ route }) => {
     const [messages, setMessages] = useState([]);
-    const [SendMessage] = useMutation(sendMessages)
+    const [SendMessage] = useMutation(sendMessages);
+    const [avatar, setAvatar] = useState([])
     const { id } = route.params
     const idRoom = id
     const { data } = useQuery(MessagesRoom, {
         variables: { id: idRoom },
     });
     const idUser = data?.room?.user?.id
-
     useEffect(() => {
         if (data) {
+            const avatar = data?.room?.messages.map(el => {
+                let avatarIcon = {
+                    user: {
+                        _id: el.user.id,
+                        avatar: el.user.profilePic || <ProfileIcon />,
+                    }
+                }
+                return avatarIcon
+            })
+            setAvatar(avatar)
             const messagesInRoom = data?.room?.messages.map(el => {
                 let messages = {
                     ...el,
@@ -90,21 +101,23 @@ const Chat = ({ route }) => {
         )
     }
     return (
-
-        <GiftedChat
-            messages={messages.reverse()}
-            showAvatarForEveryMessage={true}
-            onSend={messages => onSend(messages)}
-            renderBubble={renderBubble}
-            renderInputToolbar={renderInput}
-            renderComposer={renderComposer}
-            renderSend={renderSend}
-            alwaysShowSend={true}
-            user={{
-                _id: idUser,
-            }} />
-
+        <>
+            <ChatHeader avatar={avatar} />
+            <GiftedChat
+                messages={messages.reverse()}
+                showAvatarForEveryMessage={true}
+                onSend={messages => onSend(messages)}
+                renderBubble={renderBubble}
+                renderInputToolbar={renderInput}
+                renderComposer={renderComposer}
+                renderSend={renderSend}
+                alwaysShowSend={true}
+                user={{
+                    _id: idUser,
+                }} />
+        </>
     )
+
 }
 
 const styles = StyleSheet.create({
