@@ -40,3 +40,11 @@ export const MessagesRoom = gql`
     }
   }
 `;
+
+export const sendMessages = gql`
+mutation SendMessage($roomId:String!, $body:String!) {
+  SendMessage(roomId:$roomId, body:$body ) {
+    body
+  }
+}
+`
