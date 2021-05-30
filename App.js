@@ -1,23 +1,36 @@
 
 import React from 'react';
-import { StyleSheet, View, SafeAreaView } from 'react-native';
 import Header from "./src/components/header/Header"
-import RoomsScreen from "./src/components/ListRooms/RoomsScreen"
+import Navigation from "./src/components/Navigation/Navigation"
+import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client"
+import { setContext } from '@apollo/client/link/context';
+import { Token, URL } from "./src/components/utils/token"
 
+const httpLink = createHttpLink({
+  uri: URL,
+});
+
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      authorization: Token ? `Bearer ${Token}` : "",
+    }
+  }
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
 export default function App() {
+
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View>
-        <Header />
-        <RoomsScreen />
-      </View>
-    </SafeAreaView>
+    <ApolloProvider client={client}>
+      <Header />
+      <Navigation />
+    </ApolloProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  safeAreaView: {
-    height: 46,
-    backgroundColor: "#B6DEFD"
-  },
-});
+
