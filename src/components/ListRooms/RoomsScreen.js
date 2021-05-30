@@ -20,7 +20,9 @@ const RoomsScreen = ({ navigation }) => {
                 data={dataRooms}
                 renderItem={({ item }) => {
                     return (
-                        <Pressable onPress={() => navigation.navigate("Chat")} >
+                        <Pressable onPress={() => navigation.navigate("Chat", {
+                            id: item.id
+                        })} >
                             <Card rooms={item} />
                         </Pressable>
                     )

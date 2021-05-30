@@ -18,3 +18,25 @@ query {
   }
 `
 
+export const MessagesRoom = gql`
+  query ($id: String!) {
+    room(id: $id) {
+      id
+      messages {
+        id
+        body
+        insertedAt
+        user {
+          id
+          firstName
+          profilePic
+        }
+      }
+      name
+      roomPic
+      user {
+        id
+      }
+    }
+  }
+`;
