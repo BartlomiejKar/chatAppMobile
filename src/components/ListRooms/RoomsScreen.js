@@ -1,14 +1,32 @@
-import React from 'react';
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, Pressable, FlatList } from "react-native";
 import Card from "./Card"
+import { useQuery } from "@apollo/client"
+import { DataRooms } from "../utils/data"
 
-const RoomsScreen = () => {
+const RoomsScreen = ({ navigation }) => {
+    const { data } = useQuery(DataRooms)
+    const [dataRooms, setDataRooms] = useState([])
 
+    useEffect(() => {
+        if (data) {
+            const rooms = data.usersRooms.rooms
+            setDataRooms(rooms)
+        }
+    }, [data])
     return (
         <View style={styles.list}>
-            <Card />
-            <Card />
-            <Card />
+            <FlatList
+                data={dataRooms}
+                renderItem={({ item }) => {
+                    return (
+                        <Pressable onPress={() => navigation.navigate("Chat")} >
+                            <Card rooms={item} />
+                        </Pressable>
+                    )
+                }}
+                keyExtractor={item => item.id}
+            />
         </View>
     )
 }
@@ -17,7 +35,7 @@ const RoomsScreen = () => {
 const styles = StyleSheet.create({
     list: {
         backgroundColor: "#E5E5E5",
-        height: 10000,
+        flex: 1,
     }
 })
 export default RoomsScreen

@@ -1,17 +1,18 @@
 import React from 'react';
+import ProfileIcon from "../../../assets/profile"
 
 import { View, Text, StyleSheet, Image } from "react-native"
 
 
-const Card = () => {
-
+const Card = ({ rooms }) => {
+    const { name, id, roomPic } = rooms;
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image style={{ width: 64, height: 64, borderRadius: 100, backgroundColor: "blue" }} />
+                {roomPic ? <Image source={{ uri: roomPic }} style={{ width: 64, height: 64, borderRadius: 100, backgroundColor: "blue" }} /> : <ProfileIcon />}
             </View>
             <View style={styles.messages}>
-                <Text>header title</Text>
+                <Text>{name}</Text>
                 <Text>Some messages</Text>
             </View>
         </View >
