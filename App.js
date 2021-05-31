@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Header from "./src/components/header/Header"
+import { SafeAreaView, StyleSheet, StatusBar } from "react-native"
 import Navigation from "./src/components/Navigation/Navigation"
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client"
 import { setContext } from '@apollo/client/link/context';
@@ -27,9 +27,18 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <Navigation />
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="dark-content" />
+        <Navigation />
+      </SafeAreaView>
     </ApolloProvider>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#B6DEFD"
+  }
+})
 

@@ -127,6 +127,8 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 12,
         borderBottomLeftRadius: 12,
         marginHorizontal: 16,
+        padding: 12,
+        minHeight: 41,
     },
     sendIcon: {
         width: 34,

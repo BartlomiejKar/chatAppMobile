@@ -41,7 +41,8 @@ const RoomsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     list: {
         backgroundColor: "#E5E5E5",
-        flex: 1
+        flex: 1,
+        marginTop: 24
     }
 })
 export default RoomsScreen
