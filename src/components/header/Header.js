@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, Text } from "react-native"
 import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
-import SearchIcon from "../../../assets/search"
-import PeopleIcon from "../../../assets/rooms"
-
+import { SvgXml } from "react-native-svg"
+import searchIcon from "../../../assets/search"
+import peopleIcon from "../../../assets/rooms"
 
 const Header = () => {
     let [poppinsLoaded] = useFonts({
@@ -19,8 +19,8 @@ const Header = () => {
                 <Text style={styles.text}>Rooms</Text>
             </View>
             <View style={styles.icons}>
-                <SearchIcon style={styles.searchIcon} />
-                <PeopleIcon style={styles.peopleIcon} />
+                <SvgXml xml={searchIcon} />
+                <SvgXml style={styles.peopleIcon} xml={peopleIcon} />
             </View>
         </View>
     )

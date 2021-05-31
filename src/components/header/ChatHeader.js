@@ -1,8 +1,9 @@
 import React from 'react';
 import { Poppins_700Bold, useFonts } from "@expo-google-fonts/poppins";
 import { View, StyleSheet, Text, Image } from "react-native"
-import PhoneIcon from '../../../assets/phone';
-import VideoCall from '../../../assets/videocall';
+import { SvgXml } from "react-native-svg"
+import phoneCall from "../../../assets/phone"
+import videoCall from "../../../assets/videocall"
 const ChatHeader = (props) => {
     const userInfo = props.avatar.map(el => {
         return el.user.avatar
@@ -22,8 +23,8 @@ const ChatHeader = (props) => {
                 <Text style={styles.active}>Active now</Text>
             </View>
             <View style={styles.icons}>
-                <PhoneIcon style={styles.searchIcon} />
-                <VideoCall style={styles.peopleIcon} />
+                <SvgXml xml={phoneCall} />
+                <SvgXml style={styles.videoCall} xml={videoCall} />
             </View>
         </View>
     )
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         top: 65
     },
-    peopleIcon: {
+    videoCall: {
         marginLeft: 8,
         marginRight: 16
     },

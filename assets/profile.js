@@ -1,32 +1,10 @@
-import * as React from "react"
-import Svg, { Circle, Mask, G, Path } from "react-native-svg"
-
-function ProfileIcon(props) {
-    return (
-        <Svg
-            width={64}
-            height={64}
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            {...props}
-        >
-            <Circle cx={32} cy={32} r={32} fill="#E9EAEE" />
-            <Mask
-                id="prefix__a"
-                maskUnits="userSpaceOnUse"
-                x={0}
-                y={0}
-                width={64}
-                height={64}
-            >
-                <Circle cx={32} cy={32} r={32} fill="#E9EAEE" />
-            </Mask>
-            <G mask="url(#prefix__a)" fill="#BFC1CC">
-                <Path d="M32 32c6.627 0 12-5.373 12-12S38.627 8 32 8s-12 5.373-12 12 5.373 12 12 12zM32 32c19.33 0 35 15.67 35 35s-15.67 35-35 35S-3 86.33-3 67s15.67-35 35-35z" />
-            </G>
-        </Svg>
-    )
-}
-
-export default ProfileIcon
+export default `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" r="32" fill="#E9EAEE"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+<circle cx="32" cy="32" r="32" fill="#E9EAEE"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M32 32C38.6274 32 44 26.6274 44 20C44 13.3726 38.6274 8 32 8C25.3726 8 20 13.3726 20 20C20 26.6274 25.3726 32 32 32Z" fill="#BFC1CC"/>
+<path d="M32 32C51.33 32 67 47.67 67 67C67 86.33 51.33 102 32 102C12.67 102 -3 86.33 -3 67C-3 47.67 12.67 32 32 32Z" fill="#BFC1CC"/>
+</g>
+</svg>`

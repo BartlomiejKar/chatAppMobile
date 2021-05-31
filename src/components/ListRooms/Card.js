@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { SvgXml } from "react-native-svg"
 import ProfileIcon from "../../../assets/profile"
 import { useQuery } from "@apollo/client";
-
 
 import { View, Text, StyleSheet, Image } from "react-native"
 
@@ -33,7 +33,7 @@ const Card = ({ rooms }) => {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-                {roomPic ? <Image source={{ uri: roomPic }} style={{ width: 64, height: 64, borderRadius: 100, backgroundColor: "blue" }} /> : <ProfileIcon />}
+                {roomPic ? <Image source={{ uri: roomPic }} style={{ width: 64, height: 64, borderRadius: 100, backgroundColor: "blue" }} /> : <SvgXml xml={ProfileIcon} />}
             </View>
             <View style={styles.messages}>
                 <Text style={styles.titleMessages}>{name}</Text>

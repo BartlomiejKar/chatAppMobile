@@ -1,26 +1,4 @@
-import React from "react"
-import Svg, { Circle, Path } from "react-native-svg"
-
-function SearchIcon(props) {
-  return (
-    <Svg
-      width={44}
-      height={44}
-      viewBox="0 0 44 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <Circle cx={22} cy={22} r={22} fill="#fff" />
-      <Path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M33.4 31.35l-5.695-5.724C34.55 14.326 20.763 5.2 12.79 12.783c-7.738 8.714 1.95 21.59 12.815 14.952l5.695 5.569c1.646 1.81 3.75-.3 2.1-1.955zM19.667 12.98c8.994 0 9.285 13.546 0 13.546-9.042 0-8.784-13.546 0-13.546z"
-        fill="#5603AD"
-      />
-    </Svg>
-  )
-}
-
-
-export default SearchIcon
+export default `<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="22" cy="22" r="22" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.4003 31.3493L27.7053 25.6262C34.5487 14.3252 20.7634 5.19905 12.7904 12.7831C5.05171 21.4967 14.7403 34.3726 25.6054 27.7354L31.3004 33.3039C32.9456 35.1132 35.0502 33.0039 33.4003 31.3493ZM19.6666 12.9799C28.6615 12.9799 28.9521 26.5261 19.6666 26.5261C10.6249 26.5261 10.8827 12.9799 19.6666 12.9799Z" fill="#5603AD"/>
+</svg>`

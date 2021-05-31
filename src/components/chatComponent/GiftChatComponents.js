@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from "react-native"
 import { Bubble, InputToolbar, Composer, Send } from "react-native-gifted-chat";
-import ProfileIcon from '../../../assets/profile';
-import SendIcon from "../../../assets/send";
+import { SvgXml } from "react-native-svg"
+import sendIcon from "../../../assets/send"
 
 export const renderBubble = (props) => {
     return <Bubble
@@ -41,7 +41,7 @@ export const renderSend = (props) => {
         <Send
             {...props}
         >
-            <SendIcon style={styles.sendIcon} />
+            <SvgXml style={styles.sendIcon} xml={sendIcon} />
         </Send>
     )
 }
@@ -57,8 +57,6 @@ const styles = StyleSheet.create({
         minHeight: 41,
     },
     sendIcon: {
-        width: 34,
-        height: 34,
         marginRight: 10,
     }
 })
