@@ -1,10 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
 import { useQuery, useMutation } from "@apollo/client"
 import { MessagesRoom, sendMessages } from "../utils/data"
-import { Bubble, Composer, GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat'
-import ProfileIcon from '../../../assets/profile';
-import SendIcon from "../../../assets/send";
+import { GiftedChat } from 'react-native-gifted-chat'
+import { renderBubble, renderComposer, renderInput, renderSend } from "./GiftChatComponents"
 import ChatHeader from "../header/ChatHeader"
 
 
@@ -59,47 +57,7 @@ const Chat = ({ route }) => {
             }
         })
     }, [])
-    const renderBubble = (props) => {
-        return <Bubble
-            {...props}
-            wrapperStyle={{
-                right: {
-                    maxWidth: 245,
-                    backgroundColor: "#993AFC",
-                },
-                left: {
-                    maxWidth: 245,
-                    backgroundColor: "white",
-                },
-            }}
-        />
-    }
-    const renderInput = (props) => {
-        return <InputToolbar
-            {...props}
-            containerStyle={{
-                backgroundColor: "#B6DEFD",
-                borderTopColor: "#B6DEFD",
-            }}
-        />
-    }
 
-    const renderComposer = (props) => {
-        return <Composer
-            {...props}
-            textInputStyle={styles.textInputStyle}
-            placeholder=""
-        />
-    }
-    const renderSend = (props) => {
-        return (
-            <Send
-                {...props}
-            >
-                <SendIcon style={styles.sendIcon} />
-            </Send>
-        )
-    }
     return (
         <>
             <ChatHeader avatar={avatar} />
@@ -120,22 +78,7 @@ const Chat = ({ route }) => {
 
 }
 
-const styles = StyleSheet.create({
-    textInputStyle: {
-        backgroundColor: 'white',
-        borderTopLeftRadius: 12,
-        borderTopRightRadius: 12,
-        borderBottomLeftRadius: 12,
-        marginHorizontal: 16,
-        padding: 12,
-        minHeight: 41,
-    },
-    sendIcon: {
-        width: 34,
-        height: 34,
-        marginRight: 10,
-    }
-})
+
 
 
 export default Chat
